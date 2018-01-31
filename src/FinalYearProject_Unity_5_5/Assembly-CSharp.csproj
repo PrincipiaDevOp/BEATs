@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{8C1D676B-682C-A8CB-E0C1-67FBDE5F143B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_1;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VIDEO;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Other Scripts\ColorGradient.cs" />
+     <Compile Include="Assets\_Audio Scripts\AnimateFrequencyNote.cs" />
+     <Compile Include="Assets\_Audio Scripts\AnimateSpectrumObject.cs" />
+     <Compile Include="Assets\_Audio Scripts\AudioFileLoader.cs" />
+     <Compile Include="Assets\_Audio Scripts\LightByAudio.cs" />
+     <Compile Include="Assets\_Audio Scripts\MathA.cs" />
+     <Compile Include="Assets\_Audio Scripts\OnAudioColorMesh.cs" />
+     <Compile Include="Assets\_Audio Scripts\SpawnByFrequency.cs" />
+     <Compile Include="Assets\_Audio Scripts\SpawnByShape.cs" />
+     <Compile Include="Assets\_Audio Scripts\SpectrumAnalyser.cs" />
+     <Compile Include="Assets\_Database\Scripts\DBController.cs" />
+     <Compile Include="Assets\_Database\Scripts\HighScoreScript.cs" />
+     <Compile Include="Assets\_Display Scripts\CameraScript.cs" />
+     <Compile Include="Assets\_Display Scripts\TestPlayerMovement.cs" />
+     <Compile Include="Assets\_Manager Scripts\EventsManager.cs" />
+     <Compile Include="Assets\_Manager Scripts\GameMaster.cs" />
+     <Compile Include="Assets\_Manager Scripts\GameProperties.cs" />
+     <Compile Include="Assets\_Manager Scripts\GameSceneManager.cs" />
+     <Compile Include="Assets\_Manager Scripts\Loader.cs" />
+     <Compile Include="Assets\_Manager Scripts\NotesManager.cs" />
+     <Compile Include="Assets\_Manager Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\_Manager Scripts\UIButtonManager.cs" />
+     <Compile Include="Assets\_Manager Scripts\UIManager.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\Bullet.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\Explosion.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\HealthBar.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\MouseLookMovement.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\ParticleDecalData.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\ParticleDecalPool.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\ParticleEmitter.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\PowerUpBar.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\Shooting.cs" />
+     <Compile Include="Assets\_Mechanics Scripts\SplatOnCollision.cs" />
+     <Compile Include="Assets\_UI Scripts\CountdownUI.cs" />
+     <Compile Include="Assets\_UI Scripts\MenuSpawner.cs" />
+     <Compile Include="Assets\_UI Scripts\PopUpTextController.cs" />
+     <Compile Include="Assets\_UI Scripts\RadialButtonController.cs" />
+     <Compile Include="Assets\_UI Scripts\ScorePopUpText.cs" />
+     <Compile Include="Assets\_UI Scripts\ScrollListElementInfo.cs" />
+     <Compile Include="Assets\_UI Scripts\SongTimer.cs" />
+     <None Include="Assets\UltimateMenus\Readme.txt" />
+     <None Include="Assets\Plugins\NAudio-1.8.0-Release\NAudio.xml" />
+     <None Include="Assets\Plugins\NAudio-1.8.0-Release\license.txt" />
+     <None Include="Assets\Plugins\NAudio-1.8.0-Release\readme.txt" />
+     <None Include="Assets\Logs\_LOGS.txt" />
+     <None Include="Assets\README.txt" />
+     <None Include="Assets\Sounds\README.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PlaymodeTestsRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="NAudio">
+ <HintPath>C:/Users/LordIsaacI/Documents/Source_App_Video/BEATs_source/FinalYearProject_Unity_5_5/Assets/Plugins/NAudio-1.8.0-Release/NAudio.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Cecil">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AppleTVSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Common">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

@@ -1,0 +1,125 @@
+Game Logbook
+--------------
+Day 1:
+Audio Theory
+ - getComponent<AudioSource>().GetSpectrumData(samples, channel, FFTWindow);
+ - FFTWindow algorithms
+AudioManager script
+--------------
+Day 2:
+Instantiate script
+ParamCube script
+---------
+Day 3:
+Implementation of Singleton pattern in AudioVisualiser class
+Polishing Audio scripts
+-------
+Day 4:
+Game controls: Mouse movement and keyboard movement
+-------------------
+Day 5:
+working on game environment prefabs
+----------------------
+Day 6:
+Working on dynamic generation of shootable objects
+using spectrum class
+OnAudioObject class finished
+Started OnAudioInstantaite
+Color interpolation 
+Color.lerp fuction testing
+---------------------------
+Day 7:
+- Revised spectrum analiser script. added comments to explain the creation of frequency bands. Reworked the logic behind the frequency bands(still more to do)
+- Worked more on the color transition in audioObject script. Added a functoin to execute the color transition while other checks wether material effects are enabled.
+- Tried to implement a glow effect to the prefab (realised it's not something crucial at this point)
+- tasks for next day are to:
+work on the script: Onaudioinstantiate to create a discrete number of objects in a specific shape
+also, implemente a way to create prefab objects that player has to shoot, these move towards the player and explode.
+-----------------------------------------------------
+Day 8:
+- Implemented Math.cs,VisualiserProperties.cs,OnAudioInstantiate
+Now, the settings for the objects that are instantiated can be set trhough the spectrumvisualiser obj in the inspector. Whiile, OnAudioInstantiate manages the instiating procedures (creating list of objects and getting spectrum data to animate the objects). Math.cs contains one single functions that is used to create a list of gameobjects and places them in the scene using a geometric shape(wall,semicircle,circle). At the moment, the instatiated objects must use the raw spectrum data to be animated. since there are not enough freq bands to be applied to each one of the objects. 
+Day 9: 
+More reaseach on audio frequency, pitch, piano pitch frequencies, Nyquist frequency etc.
+This was part of my reasearch to implement a scrip that spawns gameobject based on the frequency of the note extracted from the spectrum samples.
+Day 10: 
+House cleaning of some scripts, reworking the logic
+Fixed an scaling problem with cylinder prefab in the visualiserobject script. Now if prefab type is cylinder, its position will change in respect to its localScale.
+I failed to spawn objects based on the extracted from the spectrum data. I compared the extracted frequencies with pre-coded values of the pitch frequencies of an standard 88 key piano tuned to A4=440Hz. the comparison gave false results, extacted frequencies were not within the range for any of the precoded pitch frequency values, even when taking into account the rounding error of +- 1, i.e if extacted frequency was 262Hz, the only note with this frequency could be C4 (261.63Hz) if rounded up to 262Hz.
+Also, if extracted freqncies were within the range of one of the pitch freqncies of a 88key piano, the checking wouldnt be optimal taking too much processing. I need something more simple and easier to manipulate.
+Therefore, now I have decided to try normalissing (o,1) the fundamental frequency extracted from the spectrum data and use it to spawn objects following my previous procedures with the frequency bands.
+------------------------------
+Day 11:
+CreateFrequencyBands scrips now supports different number of FFT samples with a explicit sample rate of 44.1kHz.
+Another step would be to be able to create n number of frequency bands. However, the current 8 frequency bands fits perfectly with the eight frequency ranges in the human audio frequency range, i.e. Sub-bass, Bass etc.
+Also, the total number of samples used to create the frequency bands is half the total FFTSamples. this fits the Nyquist frequency limit. if with a 44.1 kHz sample rate, the max frequency is 20kHz; then accordingly the total number of useful samples is FFTSamples/2 as samples beyond this number will not theoretically be heard by humans. This is a convenient way of adding some logic to the whole spectrum manipulation involved in this project.
+--------------------------------------------------------
+Day 14:
+Implemented the SpawnByFrequency script.
+It animates gameobjects by finding the fundamental frequency of the strongest frequency (largest amplitude) from the spectrum samples.
+This fundamental frequency is then compared to a pre-coded frequency range based on the human audio frequency range. Based on the comparison outcome a sphere will spawn with a particular material color. 
+The precoded frequency range and the colors for the spawned gameobjects are precoded using a dictionary structure. I spent a fair amount of time finding out how to implement this data structure and how I can use it in my script. It turned out to be a pretty handy tool. It recently reduced the number of if statements I would have had to use if I decided to use conventional array structures to implemente the frequency range and the colors.
+-------------------------------------------------------
+Day 15:
+Implemented light by audio script in a similar way to AnimateVisualiserObject
+Worked more on the design of the main level scene by adding textures to the current objects in the scene; recoloured the gun prefab; 
+I revised the scripts currently in the project and I seem to have similiar functions. I'm considering the idea of using polymorphism/inheritance or simply method overloading. At the moment, I have objects that do/don't interact with the player and are using the AnimateVisualiserObject script or are using color/scale animation coded in other scripts. SpawnByShape.cs changes the color of the spawned objects using its own function.
+Another possible solution would be to implement interfaces that can be used by different scripts.
+-------------------
+day 16/17:
+Spent these days setting up the scene for the alpha demo. Implemented rotation around the y axis for some of the scene objects. Still havent dealt with interfaces or inheritance regarding the case of having similar functions in some scripts.
+--------------------------------
+day 18/19/20:
+At the moment, as I prepare for the alpha demo prototype the game still has no gameplay. The notes (targets) that the player needs to shoot at only provide a certain amount of points as score. ~Regarding, the multidisplay rendering when two displays are used to play the game; the solution I hage identified is the use of multiple layer mask for objects that I want to get rendered for each duisplay.
+Games:
+- Alpha Muse
+Alpha Muse
+Things implemented:
+- Conical Spiral (revised)
+- Polar Rose
+------------------------------------------------------------------------
+day 21:
+Started working in an mp3 file loader for my game. Im using the NAudio plugin to convert an mp3 file to a wav file because this is the format unity can handle.
+Most of the logic has been done and Im able to play a song from a folder in "\Assets\AudioAssets". Now I want to be able to show the name of the song and be able to load multiple mp3 files and play them randomly.
+----------------------------------------------------------------------
+day 22,23,24,25,26:
+These days I spent finishing the mp3 file loader. Now my game display the current song playing and the length of the song. Plans for the future are to display the remaining time of the song. The other days I was working out the gameplay for the game. Ive also started to work on mysql databse to host a leaderboard for the game, theres still alot to be done.
+From 30th Jan - 14Feb:
+- AudioFileLoader implemented completely.
+- Mechanics implemented completely including any difficulty balances.
+- Game Manager script with Singleton pattern implemented.
+- Main Menu user interface started
+	= Layer 1: Main Menu options => Layout completed, spectrum objects instantiation implementation / to complete: Actions for each button
+	= Layer 2: Select a song to play => Layout completed (Scroll List)/ to complete: Get all song data available and display it in the scroll list
+	= Layer 3: Pause game UI (to be completed) => TODO: Layout, logic...
+- EventsManager: To control what functionality needs to be running based on the game state stored in the GameMaster script
+----------------------------------------------------------------------
+Day 27 - 34:
+- Current state of the game is 70% done.
+- Game logic has been almost finished, the following scripts have been added to control the state of the game:
+- EventsManager: controls events such as updating ui canvas, spawning notes etc
+- Notes Manager: to keep track of the notes being spawned and to delete when new level starts or menu scene is loaded
+- UIManager: this contains the references to the ui gameobjects that need to be toggled on and off as the game state changes.
+- UIButtonManager: Contains all functions used by buttons in the menu and level ui
+- Score Manager: Now score is a variable that is managed by this script and also can be accessed by other scripts using its singleton instance.
+				 previously, score was managed and accessed through the GameMaster script.
+- CountDownUI: this script starts a countdown when a new level starts which triggers an event that calls functions to play a song, update score bar, spawn notes etc.
+- other changes include updates to old scripts to adapt to the logic system implemented.
+- throughout this time, one major issue was encountered:
+	- When changing between scenes - there were referece errors that were created as a result of having a Game Master object in the scene when the game first starts.
+	Although, the scripts that use the singleton pattern check for other instance of the same class and make sure there is only one instance; as the game goes from level to menu state 
+	references created with the first instance of the game master are lost and not recovered in the new instantiated game master.
+	the solution to this problem is very simple. A Loader script is attached to main camera in the scene when the game starts - which instantiates a Game Master prefab which contains all scripts and gameobjects required.
+	As no Game Master exits in the first scene (menu) - when this first scene is re-loaded - no reference errors occur as all referenced are maintained by the first and only Game Master object in the game.
+------------------------------------------------------------------
+Day 35:
+- this week as preparation for the beta demo of my game - I plan to finsih the final bits of the game logic such as end game score calculations, ui etc.
+- Also, revise the player controller script to add a more realistic effect to the movement of the player in the game.
+- Another goal is to save the score to an online database. The database for the game was already started but its implementation delayed due to problems in other areas
+of the development process which were more important to spend more time with. However, now that the game is almost finished - its current state allows for the incorporation of the database to save the player score.
+Day 36:
+- Database php scripts implemented to add scores to and retrieve scores from the database.
+- DBController script: contains functions to save and load scores from the database
+- UI layout for the leaderboard table has been finished;
+- Finalising aspects of the end game logic: Win screen with score counter and song played, with ability to go back to menu and select a new song to play.
+
